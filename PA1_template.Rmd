@@ -29,7 +29,7 @@ summary(activity)
 #Create plot data
 plotdata <- tapply(activity$steps, activity$date, FUN = sum)
 #Create plot
-hist(plotdata)
+hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab ="number of times this total was reached")
 ```
 
 2. Calculate and report the mean and median total number of steps taken per day.
@@ -103,7 +103,7 @@ activitynomissing$steps[is.na(activitynomissing$steps)] <- AggDailyPattern$steps
 #Create the data
 plotdata <- tapply(activitynomissing$steps, activitynomissing$date, FUN = sum)
 #Plot the data
-hist(plotdata)
+hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab ="number of times this total was reached")
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?

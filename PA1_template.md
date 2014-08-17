@@ -42,7 +42,7 @@ summary(activity)
 #Create plot data
 plotdata <- tapply(activity$steps, activity$date, FUN = sum)
 #Create plot
-hist(plotdata)
+hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab ="number of times this total was reached")
 ```
 
 ![plot of chunk Create plot 1](figure/Create plot 1.png) 
@@ -145,7 +145,7 @@ activitynomissing$steps[is.na(activitynomissing$steps)] <- AggDailyPattern$steps
 #Create the data
 plotdata <- tapply(activitynomissing$steps, activitynomissing$date, FUN = sum)
 #Plot the data
-hist(plotdata)
+hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab ="number of times this total was reached")
 ```
 
 ![plot of chunk Create Plot 3](figure/Create Plot 3.png) 
