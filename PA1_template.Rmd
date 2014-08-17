@@ -35,19 +35,19 @@ hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab
 2. Calculate and report the mean and median total number of steps taken per day.
 
 
-```{r, Aggregrate data}
+```{r, Aggregrate data 1}
 #Aggregrating data before calculating the mean
 Aggregrate <- aggregate(steps ~ date, data = activity, FUN= sum, na.action = na.omit )
 ```
 
 *mean and median*
 
-```{r, Calculate Mean}
+```{r, Calculate Mean 1}
 #Calculate mean and median
 mean(Aggregrate$steps)
 ```
 
-```{r, Calculate Median}
+```{r, Calculate Median 1}
 median(Aggregrate$steps)
 ```
 
@@ -97,7 +97,7 @@ activitynomissing$steps[is.na(activitynomissing$steps)] <- AggDailyPattern$steps
 ```
 
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment What is the impact of imputing missing data on the estimates of the total daily number of steps?
-*I used the inverval avarage for imputing the variabels and have less unknowns and a better spread*
+*I used the inverval avarage for imputing the variabels and have less unknowns and mean and median are now the same*
 
 
 ```{r, Create Plot 3}
@@ -106,6 +106,24 @@ plotdata <- tapply(activitynomissing$steps, activitynomissing$date, FUN = sum)
 #Plot the data
 hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab ="number of times this total was reached")
 ```
+
+```{r, Aggregrate data 2}
+#Aggregrating data before calculating the mean
+Aggregratenomissing <- aggregate(steps ~ date, data = activitynomissing, FUN= sum, na.action = na.omit )
+```
+
+
+*mean and median after imputing*
+
+```{r, Calculate Mean 2}
+#Calculate mean and median
+mean(Aggregratenomissing$steps)
+```
+
+```{r, Calculate Median 2}
+median(Aggregratenomissing$steps)
+```
+
 
 ## Are there differences in activity patterns between weekdays and weekends?
 

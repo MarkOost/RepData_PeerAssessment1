@@ -138,7 +138,7 @@ activitynomissing$steps[is.na(activitynomissing$steps)] <- AggDailyPattern$steps
 ```
 
 4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment What is the impact of imputing missing data on the estimates of the total daily number of steps?
-*I used the inverval avarage for imputing the variabels and have less unknowns and a better spread*
+*I used the inverval avarage for imputing the variabels and have less unknowns and mean and median are now the same*
 
 
 
@@ -150,6 +150,35 @@ hist(plotdata, main = "Histogram", xlab = "number of steps taken each day", ylab
 ```
 
 ![plot of chunk Create Plot 3](figure/Create Plot 3.png) 
+
+
+```r
+#Aggregrating data before calculating the mean
+Aggregratenomissing <- aggregate(steps ~ date, data = activitynomissing, FUN= sum, na.action = na.omit )
+```
+
+
+*mean and median after imputing*
+
+
+```r
+#Calculate mean and median
+mean(Aggregratenomissing$steps)
+```
+
+```
+## [1] 10766
+```
+
+
+```r
+median(Aggregratenomissing$steps)
+```
+
+```
+## [1] 10766
+```
+
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
