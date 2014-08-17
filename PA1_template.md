@@ -87,10 +87,11 @@ median(Aggregrate$steps)
 #Creating data for plot
 AggDailyPattern <- aggregate(steps ~ interval, data = activity, FUN= mean, na.action = na.omit )
 #Plotting the data
-plot(AggDailyPattern$interval, AggDailyPattern$steps, type = "l")
+plot(AggDailyPattern$interval, AggDailyPattern$steps, type = "l", xlab ="interval", ylab = "steps")
 ```
 
 ![plot of chunk Create plot 2](figure/Create plot 2.png) 
+
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 *See answer below*
 
